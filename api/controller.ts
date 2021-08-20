@@ -16,6 +16,10 @@ export const controller = {
         JSON.stringify(req.params)
       );
 
+      res.set({
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+    });
       res.status(200).json(JSON.parse(result));
     } catch (e) {
       res.status(400).json(e);
