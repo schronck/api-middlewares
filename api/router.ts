@@ -5,7 +5,12 @@ import validators from "./validators";
 const createRouter = () => {
   const router: Router = Router();
 
-  router.get("/youtube/:id", [validators.youTubeId], controller.youtube);
+  router.get("/youtube/:id", [validators.youTubeVideoId], controller.youtube);
+  router.get(
+    "/twitter/tweets/:tweetId",
+    [validators.twitterTweetId],
+    controller.twitter
+  );
 
   return router;
 };

@@ -1,5 +1,4 @@
 import { MiddleWare } from "./common";
-import logger from "../utils/logger";
 
 export class YouTubeMiddleWare extends MiddleWare {
   constructor() {
@@ -30,8 +29,6 @@ export class YouTubeMiddleWare extends MiddleWare {
     };
 
     const stringRes = JSON.stringify(videoObj);
-
-    logger.verbose(`Response:\n${stringRes}`);
 
     return stringRes;
   }
