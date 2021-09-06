@@ -11,7 +11,7 @@ export class TwitterMiddleWare extends MiddleWare {
         tweetId: JSON.parse(query).tweetId,
         userId: "10765432100123456789",
         content:
-          "Here is my address: 0xF2712e7114A237625EFC8bBA6a6ed1Bb8b6029c9",
+          "Here is my address: 0x216c2218ec309312a05b067b5d2db88c48112cdf",
         auth: [] as Array<string>,
         likes: 541879,
         comments: 1457,
