@@ -19,8 +19,13 @@ export class MiddleWare {
   }
 
   async makeRequest(params: string): Promise<string> {
+    const _params = JSON.parse(params);
+    const _headers = _params.headers
+    delete _params.headers
+  
     const res = await axios.get(this.baseUrl, {
-      params: JSON.parse(params),
+      params: _params,
+      headers: _headers,
     });
 
     const stringRes = JSON.stringify(res.data);
