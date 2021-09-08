@@ -1,6 +1,6 @@
-import { MiddleWare } from "./common";
+import { MiddleWare } from "../common";
 
-export class TwitterMiddleWare extends MiddleWare {
+export class TwitterTweetMiddleWare extends MiddleWare {
   constructor() {
     super(
       process.env.TWITTER_BEARER_TOKEN,
@@ -39,10 +39,6 @@ export class TwitterMiddleWare extends MiddleWare {
       tweetObj.text.match(/0x[a-zA-Z0-9]{40}/)![0].toLowerCase()
     ];
 
-    console.log(tweetObj);
-
-    const stringRes = JSON.stringify(tweetObj);
-
-    return stringRes;
+    return JSON.stringify(tweetObj);
   }
 }
