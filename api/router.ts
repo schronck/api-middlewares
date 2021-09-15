@@ -12,8 +12,8 @@ const createRouter = () => {
     controller.tweets
   );
   router.get(
-    "/twitter/stats/:address",
-    [validators.ethAddress],
+    "/twitter/stats/:tweetId",
+    [validators.tweetId],
     controller.twitterStats
   );
 

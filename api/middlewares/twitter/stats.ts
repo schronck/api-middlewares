@@ -1,5 +1,4 @@
 import { MiddleWare } from "../common";
-import { ethers } from "ethers";
 
 export class TwitterStatMiddleWare extends MiddleWare {
   constructor() {
@@ -10,17 +9,19 @@ export class TwitterStatMiddleWare extends MiddleWare {
   }
 
   async getResult(query: string): Promise<string> {
-    const _addresses = "0x" + JSON.parse(query).address;
+    const tweetId = JSON.parse(query).tweetId;
 
-    const stats = Array();
+    this.baseUrl += `/${tweetId}/liking_users`;
 
-    for (let i = 0; i < 50; ++i) {
-      stats.push(
-        Math.floor(Math.random() * 10000000000000000000 + 18446744073709551615)
-      ); // userId
-      stats.push(Math.floor(Math.random() * 4 + 0)); // points
-    }
+    const res = await this.makeRequest(
+      JSON.stringify({
+        headers: { Authorization: `Bearer ${this.apiKey}` }
+      })
+    );
 
-    return JSON.stringify(stats);
+    const _tweetObj = JSON.parse(res).data;
+
+    console.log(_tweetObj);
+    return JSON.stringify(_tweetObj.map((obj: any) => obj.id));
   }
 }
