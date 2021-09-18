@@ -109,6 +109,6 @@ export class TwitterStatMiddleWare extends MiddleWare {
   }
 
   async getResult(query: string): Promise<string> {
-    return JSON.stringify(await this.getNewLikesByContract(JSON.parse(query).address));
+    return JSON.stringify({likers: await this.getNewLikesByContract(JSON.parse(query).address)});
   }
 }
